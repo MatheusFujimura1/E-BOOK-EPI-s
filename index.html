@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Book de EPI's</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="home-ico">🏠</div>
+    <h1>Book de EPI's</h1>
+  </header>
+
+  <main class="container">
+    <div class="search-bar">
+      <input id="search" placeholder="Pesquise" aria-label="Pesquisar EPIs">
+      <button id="clear">✖</button>
+    </div>
+
+    <div id="list" class="list"></div>
+  </main>
+
+  <!-- Floating button that shows when there are selections -->
+  <button id="view-selected" title="Ver selecionados" class="floating-btn" aria-label="Ver selecionados" style="display:none">
+    <span id="selected-count">0</span> ✔
+  </button>
+
+  <!-- Detail modal (when clicking info button) -->
+  <div id="detail-modal" class="modal" aria-hidden="true">
+    <div class="modal-content detail-content">
+      <button class="modal-close" id="detail-close">←</button>
+      <div class="detail-thumb"><img id="detail-img" src="" alt="imagem"></div>
+      <label>Código</label>
+      <input id="detail-code" readonly>
+      <label>Texto do material</label>
+      <textarea id="detail-desc" rows="4" readonly></textarea>
+    </div>
+  </div>
+
+  <!-- Selected modal (shows all selected EPIs) -->
+  <div id="selected-modal" class="modal" aria-hidden="true">
+    <div class="modal-content selected-content">
+      <h2>Consulta de EPI's</h2>
+      <div id="selected-list" class="selected-list"></div>
+      <div class="selected-actions">
+        <button id="confirm-selection" class="confirm-btn">Confirmar</button>
+        <button id="cancel-selection" class="cancel-btn">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <img src="logo-usina-vertente.svg" alt="Usina Vertente logo" class="logo">
+    <div class="version">V 1.3</div>
+  </footer>
+
+  <template id="card-template">
+    <div class="card">
+      <div class="thumb"><img src="" alt="EPI imagem"></div>
+      <div class="info">
+        <div class="code"></div>
+        <div class="desc"></div>
+        <div class="subcode"></div>
+      </div>
+      <div class="actions">
+        <input type="checkbox" class="chk">
+        <button class="btn-info">i</button>
+      </div>
+    </div>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
